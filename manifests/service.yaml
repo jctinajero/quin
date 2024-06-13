@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quin
+  namespace: namespace-workflow-1718240900751
+  labels:
+    kubernetes.azure.com/generator: devhub
+spec:
+  type: LoadBalancer
+  selector:
+    app: quin
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
