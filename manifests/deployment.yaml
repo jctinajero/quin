@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quin
+  labels:
+    app: quin
+    kubernetes.azure.com/generator: devhub
+  namespace: namespace-workflow-1718240900751
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quin
+  template:
+    metadata:
+      labels:
+        app: quin
+    spec:
+      containers:
+        - name: quin
+          image: ticmx.azurecr.io/image-workflow-1718240900751:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
